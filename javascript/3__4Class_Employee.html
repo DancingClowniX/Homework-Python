@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+class Employee {
+    constructor(name,position,departament){
+        this.name = name;
+        this.position = position;
+        this.departament = departament;
+    }
+}
+
+class EmpTable {
+    constructor(employes){
+        this.employes=employes;
+    }
+    getHtml(){
+        let tableHtml = "<table>";
+            tableHtml+= "<tr><th>Name</th><th>Position</th><th>Departament</th></tr>";
+            for (let i = 0; i<this.employes.length;i++){
+                const employee = this.employes[i];
+                tableHtml+=`<tr><td style='${styles.style}:${styles.color}';>${employee.name}</td><td style='${styles.style}:${styles.color}';>${employee.position}</td><td style='${styles.style}:${styles.color}';>${employee.departament}</td>`
+            }
+            tableHtml+="</table>";
+            return tableHtml;
+    }
+}
+class StyledEmpTable {
+    constructor(style,color){
+        this.style=style;
+        this.color=color;
+    }
+}
+let bankEmployees = [
+    new Employee("Oleg Petric", 'Manager', "Finance"),
+    new Employee('Ilya Koba', "Seller", "Client"),
+    new Employee("Andrey Schevchenko", "Analist", 'Risk Managment'),
+];
+
+let empTable = new EmpTable(bankEmployees);
+let styles = new StyledEmpTable('background-color','darkred')
+
+console.log(empTable.getHtml());
+document.write(empTable.getHtml());
+    </script>
+</body>
+</html>

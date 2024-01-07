@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .wrapper{
+        width: 170px;
+  margin: auto;
+  
+    }
+    
+    .container1{
+        display: flex;
+    justify-content: center;
+    }
+.container{
+    margin-top: 100px;
+    border: solid;
+    width: 170px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+}
+#colorBlock{
+display: flex;
+justify-content: center;}
+
+#colorBlock1{
+    border: none;
+}
+#colorBlock2{
+    border: none;
+}
+</style>
+<body>
+    <div class="wrapper">
+    Color:<br>
+    <input type="text" id="color"><br>
+    Type:<br>
+    <select name="" id="select">
+        <option value="RGBA">RGBA</option>
+        <option value="RGB">RGB</option>
+        <option value="HEX">HEX</option>
+    </select><br>
+    Code:<br>
+    <input id="color2" type="text" placeholder="Введите значение"><br>
+    <button id="btn" value="Save">Save</button>
+    </div>
+<div class="container1">
+    <div id="colorBlock" class="container">Color
+        <div id="colorBlock1" class="container">Type</div>
+    <p id="colorBlock2" class="container">Code</p>
+    </div>
+</div>
+    <script>
+        //Смотрим элементы по id
+        let inputColor = document.getElementById('color')// ТЕКСТ ЦВЕТА
+        let containerContent = document.getElementById("colorBlock") // БЛОК ЦВЕТА И ТЕКСТА
+        let clicks=document.getElementById('btn') // КНОПКА
+        let select = document.getElementById('select') // тип RGB и RGBA или HEX
+        let containerContent1 = document.getElementById("colorBlock1")
+
+        // Событие
+let data=[]
+        clicks.addEventListener('click', function(){ // Нажимаем на кнопку
+            //containerContent.style.backgroundColor = inputColor.value // применение текста цвета к стилю блока
+        let textColor = inputColor.value // То что ввели в Текст цвета
+        containerContent.innerText=inputColor.value // добавление текста цвета в блок
+            
+        
+            let type = new Type() //Задаем тип RGB или RGBA или HEX
+            let colorType = type.getType(select.value)// Применяем тип к выбору (селекту)
+            if(colorType.isValid(document.getElementById('color2').value)) { //Если тип прошёл проверку то
+               document.getElementById('colorBlock').style.backgroundColor = colorType.getColor(document.getElementById('color2').value)//применить свойства из инпута типа RGB or RGBA or HEX к стилю блока
+               containerContent1.innerText=select.value
+               
+               data.push(select.value)
+            }
+            function saveData(){
+        localStorage.setItem("data",JSON.stringify(data));
+    }
+        }
+        )
+        //Конструкторы и классы для rgb и rgba и HEX
+        class Type {
+            getType(type) {
+                switch (type) {
+                    case 'RGB': 
+                        return new RGB()
+                    case 'RGBA':
+                        return new RGBA()
+                    case 'HEX':
+                        return new HEX ()
+                }
+            }
+        }
+        class RGB {
+            isValid(value) {
+                let is_valid = true
+                if(value.split(',').length === 3) {
+                    for (let i = 0; i < value.split(',').length; i++) {
+                        let value1 = parseInt(value.split(',')[i])
+                        if(!(value1 <= 255 && value1 >= 0)) {
+                            is_valid = false
+                            return
+                        }
+                    } 
+                    
+                } else {
+                    is_valid = false
+                }
+                return is_valid
+            }
+
+            getColor(value) {
+                return `rgb(${value})`
+            }
+        }
+
+        class RGBA{
+             isValid(value) {
+                let is_valid = true
+                if(value.split(',').length === 4) {
+                    for (let i = 0; i < value.split(',').length; i++) {
+                        let value1 = parseInt(value.split(',')[i])
+                        if(!(value1 <= 255 && value1 >= 0)) {
+                            is_valid = false
+                            return
+                        }
+                    } 
+                    
+                } else {
+                    is_valid = false
+                }
+                return is_valid;
+            }
+
+            getColor(value) {
+                return `rgba(${value})`
+            }
+        }
+
+        class HEX{
+             isValid(value) {
+                let is_valid = true;
+                if(value.length <= 7) {
+                        let value1 = value}
+                else{
+                        return is_valid
+                    }  
+            }
+            getColor(value){
+                return `${value}`}
+        }
+        
+
+            
+        
+      
+    </script>
+</body>
+</html>

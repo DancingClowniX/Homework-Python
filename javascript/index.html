@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+    <style>
+
+        .now-weather {
+            display: flex;
+            flex-direction: column;
+            row-gap: 40px;
+            width: 300px;
+            padding: 20px;
+            background-color: blanchedalmond;
+        }
+        .row {
+            display: flex;
+            column-gap: 40px;
+            align-items: center;
+        }
+
+        .now-weather {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .img-weather img {
+            width: 50px;
+            height: 50px;
+        }
+
+        .img-weather {
+            display: flex;
+            padding: 30px;
+        }
+        .city-name {
+            font-size: 32px;
+            font-weight: 700;
+        }
+    </style>
+</head> 
+<body>
+    <div class="now-weather">
+        <div class="row">
+            <div class="city-name">
+                
+            </div>
+            <div class="date-now" id="date-now"></div>
+        </div>
+        <div class="row">
+            <div class="img-weather">
+                <img src="" alt="">
+            </div>
+            <div class="info-weather">
+                <p class="info" id="wind"></p>
+                <p class="info" id="humidity"></p>
+                <p class="info" id="pressure"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(() => {
+            
+            $.ajax({
+                url:'http://api.weatherapi.com/v1/current.json',
+                method: 'get',
+                dataType : 'json',
+                data : {
+                    key : '4f81918497fa4a23bea160411232201',
+                    q : 'Samara',
+                },
+                success : function(data) {
+                    console.log(data)
+                    let getText = $('.city-name').text()  
+                    $('.city-name').text(replaceText(getText,data.location.name))
+                    $('.date-now').text(data.location.localtime)
+                    $('img').attr('src',data.current.condition.icon)
+                    $('#wind').text('Ветер: ' + data.current.gust_kph + ' км/ч')
+                    $('#humidity').text('Влажность: ' + data.current.humidity + '%')
+                    $('#pressure').text('Давление: ' +  data.current.pressure_mb + ' кПа')
+                }
+                
+            })
+        });
+
+        function replaceText(text,replaceText) {
+            let arrText = text.trim().split(' ')
+            console.log(arrText)
+            let newText = replaceText
+            if (arrText.length > 0) {
+                for (let i = 1; i < arrText.length; i++) {
+                    newText += ' ' + arrText[i]
+                }
+            }
+            return newText
+        }
+    </script>
+</body>
+</html>

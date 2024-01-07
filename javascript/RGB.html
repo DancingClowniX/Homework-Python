@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #myDiv {
+            margin-top: 20px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid;
+            background-color: red;
+        }
+    </style>
+</head>
+<div id="myDiv"></div>
+<body>
+<script>
+    const myDiv = document.getElementById('myDiv');
+    
+    function getColor(rgbStr) {
+        const [r,g,b] = rgbStr.trim().split(',').map(Number); // преобразуем строку rgbStr в массив чисел
+        
+        switch(Math.floor(r/255)){
+            case 0: return 'black';
+            case 8: return 'white';
+            default: break;
+        }
+        
+        switch(Math.floor(g/255)){
+            case 0: return 'red';
+            case 128: return 'green';
+            default: break;
+        }
+        
+        return `Color: ${b==255?'blue':'cyan'}`;
+    }
+
+    myDiv.innerHTML = getColor('#ff00ff'); // получаем название цвета для rgb-кода #ff00ff
+</script>
+</script>
+    
+</body>
+</html>

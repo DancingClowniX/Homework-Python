@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .decor{
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+    <ul id="content"></ul>
+<input type="text" placeholder="Внесите задачу" id="txt"><br>
+<input type="button" value="Добавить задачу" id="btn">
+
+
+<script>
+    let list=[];
+
+    let btn = document.getElementById("btn");
+    btn.addEventListener("click", function(){
+
+        let txt=document.getElementById("txt").value;
+        list.push(txt);
+        
+        saveContent()
+        showContent();
+    })
+
+    function saveContent(){
+        localStorage.setItem("list",JSON.stringify(list))
+    }
+
+    function showContent(){
+        let content = document.getElementById("content");
+        let out = "";
+        list.forEach(function(txt){
+            out+=`<li class=textList>${txt}<input type="checkbox" class="input"></li>`
+        })
+    }
+</script>
+</body>
+</html>

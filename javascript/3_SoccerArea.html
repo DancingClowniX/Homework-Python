@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+.area{
+    display: flex;
+    justify-content: center;
+}
+#myBalls{
+    position: absolute;
+    margin-left: 0px;
+    transition: all 2s;
+}
+    </style>
+</head>
+<body>
+    <div class="area">
+        <img id="myBalls" src="ball.png" width="100" height="130">
+    <img src="Area.jpg" width="700" height="500">
+    </div>
+    <script>
+    document.body.onclick = function(e) {
+        myBalls.style.left = (e.pageX - myBalls.offsetWidth / 2) + "px";
+        myBalls.style.top = (e.pageY - myBalls.offsetHeight / 2) + "px";
+      }
+    </script>
+</body>
+</html>

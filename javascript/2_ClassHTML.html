@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class HtmlElement {
+            constructor(tagName, isSelfClosing = false) {
+                this.tagName = tagName;
+                this.isSelfClosing = isSelfClosing;
+                this.textContent = "";
+                this.attributes = {};
+                this.styles = {};
+                this.nestedElements=[];
+            }
+            setAttribute(name, value) {
+               
+                this.attributes[name] = value;
+                
+            }
+            setStyle(property, value) {
+                    this.styles[property] = value;
+                
+            }
+            append(element) {
+                this.nestedElements.push(element);
+            }
+            prepend(element) {
+                this.nestedElements.unshift(element);
+            }
+            getHtml() {
+                const attributesHtml = Object.keys(this.attributes).map(name => `${name}="${this.attributes[name]}";`).join("");
+                const stylesHtml = Object.keys(this.styles).map(property => `${property}:${this.styles[property]};`).join("");
+                const nestedElementsHtml = this.nestedElements.map(element => element.getHtml()).join('');
+                const openingTag = `<${this.tagName}${attributesHtml ? ' ' + attributesHtml : ' '}${stylesHtml ? ' style=" ' + stylesHtml + ' " ' : ' '}${this.isSelfClosing ? '/' : ' '}>`;
+                const closingTag = !this.isSelfClosing ? `</${this.tagName}>` : '';
+                return `${openingTag}${this.textContent}${nestedElementsHtml}${closingTag}`;
+            }
+        }
+        const container = new HtmlElement('div');
+        container.setStyle("background-color", 'lightgray');
+        const heading = new HtmlElement('h1');
+        heading.textContent = "hello world";
+        heading.setStyle('color', 'blue');
+        container.append(heading);
+        const paragraph = new HtmlElement('p');
+        paragraph.textContent = 'Eto kakaoy-to text dlya primera';
+        paragraph.setStyle("font-size", '16px');
+        container.append(paragraph);
+        const link = new HtmlElement('a');
+        link.textContent = 'ZHMI EKARNY BABAI';
+        link.setAttribute("href", 'www.google.com');
+        container.append(link);
+        document.write(container.getHtml());
+    </script>
+</body>
+
+</html>

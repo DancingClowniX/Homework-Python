@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .allElement{ text-decoration: line-through;
+
+        }
+    </style>
+</head>
+<body>
+    <ul id="linkList">
+        <li><a href="index.html">index.html</a></li>
+        <li><a href="http://google.com">http://google.com</a></li>
+        <li><a href="https://itstep.org">https://itstep.org</a></li>
+        <li><a href="https://mystat.itstep.org">https://mystat.itstep.org</a></li>
+        <li><a href="/images/cat.jpg">/images/cat.jpg</a></li>
+        <li><a href="/local/path">/local/path</a></li>
+    </ul>
+    <script>
+        const linkList = document.getElementById("linkList");
+        const links = linkList.getElementsByTagName("a");
+
+            for(let i=0;i<links.length;i++){
+                const link = links[i];
+                const url = link.getAttribute("href");
+
+                if (url.startsWith("http://")) {
+                link.classList.add("allElement")
+                    }
+                }
+            
+        
+        //^(http|https):/\/
+    </script>
+</body>
+</html>

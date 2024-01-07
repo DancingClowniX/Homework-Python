@@ -1,0 +1,19 @@
+h1{background-color: rgb(173, 207, 18);
+padding: 10px 10px 10px 100px;
+margin: 10px 750px;}
+img{margin: 10px 10px 10px 400px;}
+
+.number{background-color: chocolate;
+padding: 10px;}
+.таблица{border: solid;
+border-color: aqua;
+list-style-position: inside;
+display: block;
+background-color: rgb(197, 149, 90);
+padding: 10px;
+margin: 10px 10px 10px 750px;
+height: 205px;
+width: 200px;
+justify-content: center;}
+.цвет{background-color: crimson;
+display: inline-block;}

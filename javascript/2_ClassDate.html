@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class ExtendDate {
+            constructor(dateOne){
+                this.dateOne=dateOne;
+            };
+            showDate(){
+                console.log(this.dateOne);
+            };
+            checkDateFutureOrPast(dateOne){
+                let now = new Date();
+                if (this.dateOne>=now){
+                    console.log(true,'Будущая или настоящая дата')}
+                else {
+                    console.log(false,'Прошедшая дата')}
+            };
+            checkIsLeapYear(){
+                let maybeLeapYear=this.dateOne.getFullYear();
+                if (maybeLeapYear%4==0&&maybeLeapYear%100!=0){
+                    console.log('високосный год')}
+                else if(maybeLeapYear%100==0&&maybeLeapYear%400==0){
+                    console.log('високосный год')
+                }
+                else{console.log('невисокосный год')}
+                
+            };
+            returnNextDate(){
+                let nextDate = this.dateOne.setDate(this.dateOne.getDate()+1);
+                const dateNormal = new Date(nextDate)
+                return dateNormal;
+            }
+            };
+        const date1 = new ExtendDate(new Date (2024,1,5));
+        date1.showDate();
+        date1.checkDateFutureOrPast(this.dateOne);
+        date1.checkIsLeapYear(this.dateOne);
+        date1.returnNextDate(this.dateOne);
+    </script>
+</body>
+</html>

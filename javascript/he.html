@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+#one.allElement{
+background-color: black;
+color: white;
+}
+#two.allElement{
+background-color: black;
+color: white;
+}
+#three.allElement{
+background-color: black;
+color: white;
+}
+#four.allElement{
+background-color: black;
+color: white;
+}
+#five.allElement{
+background-color: black;
+color: white;
+}
+#six.allElement{
+background-color: black;
+color: white;
+}
+    </style>
+</head>
+<body>
+   
+         <ul>
+                <li id="one" class="allElement">"Властелин Колец" Джон Р.Р. Толкиен</li>
+                <li id="two"class="allElement">"Алмазная колесница" Борис Акунин</li>
+                <li id="three"class="allElement">"Гордость и предубеждение" Джей Остин</li>
+                <li id="four"class="allElement">"Оно" Стивен Кинг</li>
+                <li id="five"class="allElement">"Мертвые души" Николай Гоголь</li>
+                <li id="six"class="allElement">"Руслан и Людмила Александр Пушкин"</li>
+            </ul>
+            <script>
+ document.getElementById('two').addEventListener("click",function(){
+            document.getElementById('two').classList.toggle("allElement")
+        })
+        document.getElementById('three').addEventListener("click",function(){
+            document.getElementById('three').classList.toggle("allElement")
+        })
+        document.getElementById('four').addEventListener("click",function(){
+            document.getElementById('four').classList.toggle("allElement")
+        })
+        document.getElementById('five').addEventListener("click",function(){
+            document.getElementById('five').classList.toggle("allElement")
+        })
+        document.getElementById('six').addEventListener("click",function(){
+            document.getElementById('six').classList.toggle("allElement")
+        })
+        </script>
+</body>
+</html>

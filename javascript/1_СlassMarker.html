@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Marker {
+            constructor(name,color,quantity){
+                this.name = name;
+                this.color=color;
+                this.quantity=quantity;
+            };
+
+            setAddPrint(color,quantity,printstring) {
+                if (quantity===0){
+                console.log('Нет чернил');
+                }
+                else {
+                    for (let i=0;i<printstring.length;i++){
+                        this.quantity-=0.5;
+                    };
+                    document.write(`<p style=color:${color};>${printstring}</p>`);
+                };
+            };
+        };
+        class Marker2 extends Marker{
+            fill(quantity){
+                if (quantity>0){
+                quantity+=quantity;}
+                let result = quantity;
+                console.log(result)
+            }   
+            };
+
+            const mark = new Marker ('first mark','darkred',10)
+            mark.setAddPrint('darkred',10,'STROKA!')
+            const mark2 = new Marker2('second mark','blue',20)
+            mark2.fill(20);
+    </script>
+</body>
+</html>

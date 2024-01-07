@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Вопрос первый. В каком году отменили крепостное право?</p>
+    <input type="checkbox" id="answerRight1">1861
+    <input type="checkbox" id="answerLose1">Не отменили<br>
+    <p>Вопрос второй. Сколько нужно учиться на программиста?</p>
+    <input type="checkbox" id="answerRight2">Бесконечность
+    <input type="checkbox" id="answerLose2">2 года<br><br>
+    <input type="submit" id="btn">
+
+    <script>
+        let answer1 = document.getElementById("answerRight1");
+        let answer2 =document.getElementById("answerLose1");
+        let answer1_1=document.getElementById("answerRight2");
+        let answer1_2=document.getElementById("answerLose2");
+        let btn = document.getElementById('btn');
+        btn.addEventListener("click", function(){
+            event.preventDefault();
+            let counterRight = 0;
+            let counterLose = 0;
+
+            if(answer1.checked&&answer1_1.checked){
+                counterRight = 2;
+                counterLose = 0;
+                alert(`Правильных ответов ${counterRight} Неправильных ответов ${counterLose}`)
+            }
+            else if (answer1.checked){
+                    if(answer1_2.checked||answer2.checked){
+                        counterRight =1;
+                        counterLose =1;}
+                alert(`Правильных ответов ${counterRight} Неправильных ответов ${counterLose}`)
+            }
+            else if (answer1_1.checked){
+                    if(answer1_2.checked||answer2.checked){
+                        counterRight =1;
+                        counterLose =1;}
+                alert(`Правильных ответов ${counterRight} Неправильных ответов ${counterLose}`)
+            }
+            else if (answer1_2.checked&&answer2.checked){
+                counterRight = 0;
+                counterLose = 2;
+                alert(`Правильных ответов ${counterRight} Неправильных ответов ${counterLose}`)
+            }
+            
+        })
+    </script>
+</body>
+</html>

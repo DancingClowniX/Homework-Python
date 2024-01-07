@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+        let str2 = undefined;
+        str2 = String(str2)
+        function concat(){
+            for (let i = 0;;i++){
+            let str = prompt('Введи строку');
+            str2+=`${str}`;
+            let question = confirm('Строка сложена, Желаете продолжить?')
+            if (question===true){
+            continue;}
+            else{break;};
+        };
+        return str2;
+        };
+
+
+    </script>
+</body>
+</html>

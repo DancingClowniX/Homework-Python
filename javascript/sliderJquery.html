@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{height: 90%;
+            width: 90%;
+        justify-content: center;
+    display: flex;}
+        #ul_li {list-style-type: none;
+        }
+        #block{display: inline;
+        justify-content: center;
+    }
+        #btn{display: flex;
+        justify-content: center;
+    }
+    
+    </style>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <div id="block">
+    <ul id="ul_li">
+        <li id="blockOne"><img src="карт1.jpg" alt="" width="1000" height="700"></li>
+        <li id="blockTwo" style="display: none;"><img src="карт2.jpg" alt=""width="1000" height="700"></li>
+        <li id="blockThree" style="display: none;"><img src="карт3.jpg" alt=""width="1000" height="700"></li>
+        <li id="blockFour" style="display: none;"><img src="карт4.jpg" alt=""width="1000" height="700"></li>
+    </ul>
+    <div id="btn"><button id="bef">before</button><button id="play">play</button><button id="aft">after</button></div>
+    </div>
+    <script>
+        let index=0;
+        let trans=700;
+        $("#aft").click(function (){
+                if (index==0){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockTwo").css("display","flex");
+                }
+                else if(index==1){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockThree").css("display","flex");
+                }
+                else if(index==2){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockFour").css("display","flex");
+                }
+                else if(index==3){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockOne").css("display","flex");
+                    trans = 0;
+                    index = -1;
+                }
+                index++;
+                trans+=700;
+                }
+        );
+        $("#bef").click(function(){
+                if (index==0){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockFour").css("display","flex");
+                    trans = 2800;
+                    index = 4;
+                }
+                else if(index==1){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockOne").css("display","flex");
+                }
+                else if(index==2){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockTwo").css("display","flex");
+                }
+                else if(index==3){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockThree").css("display","flex");
+                }
+            index--;
+            trans-=700;
+        });
+
+        $("#play").click(function(){
+            setInterval(function showSlides(){
+                if (index==0){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockTwo").css("display","flex");
+                }
+                else if(index==1){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockThree").css("display","flex");
+                }
+                else if(index==2){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockFour").css("display","flex");
+                }
+                else if(index==3){
+                    $("li").css("display","none");
+                    $("li").css("transform",`translateY(${trans})`);
+                    $("#blockOne").css("display","flex");
+                    trans = 0;
+                    index = -1;
+                }
+                index++;
+                trans+=700;
+                },1000)
+        })
+
+
+    </script>
+    
+</body>
+</html>

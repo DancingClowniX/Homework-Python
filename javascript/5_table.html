@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+td {
+  border: 1px solid #333;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+thead,tfoot {
+  background-color: #333;
+  color: #fff;
+}
+    </style>
+</head>
+<body>
+    <table id="table">
+        <thead>
+          <tr>
+            <td id="head">FirstName</td>
+            <td id="head" class="age1">Age</td>
+            <td id="head">SurName</td>
+            <td id="head">Company</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td id="name">Frank</td>
+            <td id="age">44</td>
+            <td id="surName">Mateush</td>
+            <td id="corp">ZCZ</td>
+          </tr>
+          <tr>
+            <td id="name">Gelios</td>
+            <td id="age">32</td>
+            <td id="surName">Nison</td>
+            <td id="corp">ABC</td>
+          </tr>
+          <tr>
+            <td id="name">Bagart</td>
+            <td id="age">21</td>
+            <td id="surName">Morou</td>
+            <td id="corp">ClearPharmacy</td>
+          </tr>
+          <tr>
+            <td id="name">CopySurfer</td>
+            <td id="age">37</td>
+            <td id="surName">Silver</td>
+            <td id="corp">Assholes</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <script>
+        let agess = document.getElementById("age")
+        agess.addEventListener("click",function(event){
+        let sortedRows = Array.from(table.rows)
+        .slice(1)
+         .sort((rowA,rowB)=>{
+           return rowA.cells[1].innerHTML - rowB.cells[1].innerHTML
+        })
+        table.tBodies[0].append(...sortedRows)
+      })
+      </script>
+</body>
+</html>

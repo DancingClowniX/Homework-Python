@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .bColor{
+        background-color: blue;
+    }
+
+    .textDecoration{
+       font-style: italic
+    }
+
+    .center{display: flex;
+    justify-content: center;}
+    .color{
+        color: darkred;
+    }
+</style>
+</head>
+<body>
+    
+    <hr width="1000" size="2" color="black"/>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sunt soluta harum placeat! Praesentium quia
+        assumenda, iste labore impedit blanditiis aliquam veniam exercitationem, deleniti quaerat magnam dolor velit vel
+        autem?
+    </div>
+    <input type="checkbox" id="center">center
+            <input type="checkbox" id="color">color
+            <input type="checkbox" id="bColor">background-color
+            <input type="checkbox" id="textdecoration">textdecoration
+            <input type="submit" id="redaction" value="Редактировать">
+            
+    <script>
+        let redaction = document.getElementById("redaction");
+        redaction.addEventListener("click", keyPress);
+        let center = document.getElementById('center');
+        let bColor = document.getElementById('bColor');
+        let color = document.getElementById('color');
+        let decor = document.getElementById('textdecoration');
+
+        function keyPress(e) {
+            
+                e.preventDefault();
+                let el = document.querySelector("hr").nextElementSibling;
+                if (el.nodeName === "TEXTAREA") {
+                    let newEl = document.createElement("div");
+                    newEl.textContent = el.value;
+                    el.replaceWith(newEl);
+                    if (center.checked){
+                        newEl.classList.add('center')
+                        el.replaceWith(newEl);
+                    }
+                    else if (bColor.checked){
+                        newEl.classList.add("bColor")
+                        el.replaceWith(newEl);
+                    }
+                    else if (color.checked){
+                        newEl.classList.add("color")
+                        el.replaceWith(newEl);
+                    }
+                    else if (decor.checked){
+                        newEl.classList.add("textDecoration")
+                        el.replaceWith(newEl);
+                    }
+                    
+                }
+                else if (el.nodeName === "DIV") {
+                    let newEl = document.createElement("textarea");
+                    newEl.textContent = el.textContent;
+                    el.replaceWith(newEl);
+                    if (center.checked){
+                        newEl.classList.add('center')
+                        el.replaceWith(newEl);
+                    }
+                    else if (bColor.checked){
+                        newEl.classList.add("bColor")
+                        el.replaceWith(newEl);
+                    }
+                    else if (color.checked){
+                        newEl.classList.add("color")
+                        el.replaceWith(newEl);
+                    }
+                    else if (decor.checked){
+                        newEl.classList.add("textDecoration")
+                        el.replaceWith(newEl);
+                    }
+                }
+            }
+        
+    </script>
+</body>
+</html>

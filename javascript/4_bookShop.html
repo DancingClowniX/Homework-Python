@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book store</title>
+<style>
+    .wrapper form {
+        display: flex;
+    }
+    
+    label {
+        display:block;
+    }
+    
+    label span{
+        display:inline-block;
+        width: 170px;
+    }
+    
+    label input{
+        display:inline-block;
+        width: 170px;
+    }
+    
+    textarea {
+        resize: none;
+    }
+    
+    .first_book {
+        border: 1px solid black;
+        width: 23%;
+        height: 300px;
+    }
+    
+    .second_book {
+        border: 1px solid black;
+        width: 23%;
+        height: 300px;
+    }
+    
+    .third_book {
+        border: 1px solid black;
+        width: 23%;
+        height: 300px;
+    }
+    
+    .shopping_window {
+        border: 1px solid black;
+        width: 31%;
+        height: 300px;
+    }
+    
+    .invisible {
+        visibility: hidden;
+        opacity: 0;
+    }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <form action="">
+            <div class="first_book">
+                <h2>Книга-1</h2>
+                <input type="button" value="выбрать" onclick="optionAdd(this.form.screen, 'Книга-1')"/>
+            </div>
+            <div class="second_book">
+                <h2>Книга-2</h2>
+                <input type="button" value="выбрать" onclick="optionAdd(this.form.screen, 'Книга-2')"/>
+            </div>
+            <div class="third_book">
+                <h2>Книга-3</h2>
+                <input type="button" value="выбрать" onclick="optionAdd(this.form.screen, 'Книга-3')"/>
+            </div>
+            <div class="shopping_window">
+                    <label for="title"> 
+                        <span>Книга:</span>
+                        <input type="text" name="screen" id="result" disabled/>
+                        </label>
+                    <label for="quantity"> 
+                        <span>Количество:</span>
+                    <input type="number" id="quantity" name="quantity">
+                    
+                    </label>
+                    <label for="nam">
+                        <span>Имя:</span>
+                        <input type="text" id="nam" name="nam" placeholder="Ваше Имя">
+                    </label>
+                    <label for="deliveryAddress"> 
+                        <span>Адрес доставки:</span>
+                        <input type="text" id="deliveryAddress" name="deliveryAddress">
+                    </label>
+                    <label for="deliveryDate"> 
+                        <span>Дата доставки:</span>
+                        <input type="date" id="deliveryDate" name="deliveryDate">
+                    </label>
+                    <label for="comment"> 
+                        <span>Комментарий:</span>
+                        <textarea name="comment" id="comment" cols="21" rows="10"></textarea>
+                    </label>
+                    <input type="submit" value="Отправить" id="send">
+            </div>
+        </form>
+    </div>
+    <div id="field" class="invisible">
+        <span id="buyerName"></span> 
+        <p>спасибо за заказ.</p>
+        <span id="book"></span>
+        <p> будет доставлен </p>
+        <span id="deliveryDate" ></span>
+        <p>по адресу</p>
+        <span id="buyerAddress" ></span>
+    </div>
+
+</body>
+</html>
+<script>
+function optionAdd(input, character) {
+    if(input.value == null) { 
+        input.value = character
+    } else {
+        input.value += character 
+        }
+}
+
+let invisibleVisible = document.getElementById("field");
+let anotherOn = document.getElementById("send");
+anotherOn.addEventListener("click", function() {
+    event.preventDefault();
+    if (invisibleVisible.classList.contains("invisible")) {
+        invisibleVisible.classList.remove("invisible");
+    }
+});
+
+let buyerName = document.querySelector('#buyerName');
+let book = document.querySelector('#book');
+let deliveryDate = document.querySelector('#deliveryDate');
+let buyerAddress = document.querySelector('#buyerAddress');
+</script>

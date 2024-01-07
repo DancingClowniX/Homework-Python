@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            margin-left: 35%;
+        }
+        body,html{
+            margin: 0;
+            height: 80%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        .wrapper{
+            border: solid 2px;
+            display: grid;
+            justify-content: center;            
+        }
+        .btnP{
+            margin-left: 45%;
+        }
+        
+        .seek{
+            display: flex;
+        }
+        #moon1{display: flex;}
+        #moon2,#moon3,#moon4{
+            display: none;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="wrapper"><h1>SLIDER</h1>
+        <div class="slider" style="width: 500px; height: 600px;">
+            <img src="moon1.jpg"  width="500px" height="400px" id="moon1" alt="">
+            <img src="moon2.jpg"  width="500px" height="400px" id="moon2" alt="">
+            <img src="moon3.jpg"  width="500px" height="400px" id="moon3" alt="">
+            <img src="moon4.jpg"  width="500px" height="400px" id="moon4" alt="">
+            <input type="button" class="btnP" id="btnPrev" value="&lt;">
+            <input type="button" class="btnN" id="btnNext" value="&gt;">
+        </div>
+    </div>
+    <script src="/code.jquery.com_jquery-3.7.0.js"></script>
+    <script>
+        let item1 = $("#moon1");
+        let item2 = $("#moon2");
+        let item3 = $("#moon3");
+        let item4 = $("#moon4");
+        let arr=[item1,item2,item3,item4];
+        let index = 0;
+        let index2 = 0;
+        let slide = undefined;
+        let arr2=[item4,item3,item2,item1];
+$(".btnN").click(()=>{
+    
+    slide = arr[index];
+    index+=1;
+    console.log(slide);
+    console.log(arr);
+    console.log(arr[index]);
+    console.log(index);
+    if (index<4){
+        slide.css("display","none");
+            arr[index].css("display","flex")
+        }
+        else{
+            index = 0;
+            slide.css("display","none");
+            arr[index].css("display","flex")
+        }  
+    }
+);
+
+
+$(".btnP").click(()=>{
+    console.log(arr2)
+    slide = arr2[index2];
+    index2+=1;
+    console.log(slide);
+    console.log(arr2[index2]);
+    
+    if (index2<4){
+        slide.css("display","none");
+            arr2[index2].css("display","flex")
+        }
+        else{
+            index2 = 0;
+            slide.css("display","none");
+            arr2[index2].css("display","flex")
+        }  
+    }
+);
+    </script>
+</body>
+</html>

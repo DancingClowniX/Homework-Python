@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Нажмите Ctrl+Z для редактирования текста<br/>
+    Нажмите Ctrl+S для сохранения текста
+    <hr width="1000" size="2" color="#ff0000"/>
+    <div>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat sunt soluta harum placeat! Praesentium quia
+        assumenda, iste labore impedit blanditiis aliquam veniam exercitationem, deleniti quaerat magnam dolor velit vel
+        autem?
+    </div>
+    <script>
+        document.body.addEventListener("keydown", keyPress);
+
+        function keyPress(e) {
+            if ((e.code === "KeyS" || e.code === "KeyE") && e.ctrlKey) {
+                e.preventDefault();
+                let el = document.querySelector("hr").nextElementSibling;
+                if (e.code === "KeyS" && el.nodeName === "TEXTAREA") {
+                    let newEl = document.createElement("div");
+                    newEl.textContent = el.value;
+                    el.replaceWith(newEl);
+                }
+                else if (e.code === "KeyE" && el.nodeName === "DIV") {
+                    let newEl = document.createElement("textarea");
+                    newEl.textContent = el.textContent;
+                    el.replaceWith(newEl);
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

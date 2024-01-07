@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+class Employer{
+    constructor(){
+        this.data;
+    }
+    setData(data){
+        this.data = data;
+    }
+    getNames(name){
+        this.data["employees"].forEach((element)=>{
+        if (element.name==name){
+            console.log(element);
+            }
+        });
+    }
+    info(){
+        this.data["employees"].forEach((element)=>{
+            if (element==element){
+            console.log(element);
+            }
+        })
+    }
+    getPositions(position){
+        this.data["employees"].forEach((element)=>{
+            if (element.position==position){
+            console.log(element);
+            }
+        })
+    }
+    getSalary(salary){
+        this.data["employees"].forEach((element)=>{
+            if (element.salary==salary){
+            console.log(element);
+            }
+        })
+    }
+    setEmployer(id,name,position,salary){
+        this.id=id;
+        this.name=name;
+        this.position=position;
+        this.salary=salary;
+    }
+  }
+  let data1 = new Employer();
+
+fetch("./employer.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    data1.setData(data);
+  })
+  .finally(() =>{
+    
+            data1.info()
+            data1.getNames("John Doe")
+            data1.getPositions('Developer')
+           data1.getSalary(4000)
+           data1.setEmployer(5,"Djigan","singer",1000)
+           console.log(data1.data)
+        }) 
+    </script>
+</body>
+</html>

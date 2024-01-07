@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="slider.js" async></script>
+    <script src="Index2.js" async></script>
+    <style>
+                .slider {
+    margin: 50px;
+    padding: 20px;
+    box-shadow: 4px 4px 5px 4px rgb(26, 25, 25);
+    transition: 0.5s;
+    background-color:rgb(0, 0, 0);
+    border-radius: 5px;
+    opacity: .97;
+}
+
+.slider:hover {
+    box-shadow: 5px 6px 6px 4px rgb(26, 25, 25);
+    transition: 0.5s;
+}
+
+.item {
+    display: flex;
+    justify-content: space-evenly;
+    height: 100%;
+    color: white;
+}
+#openModal{margin-top: 5px;}
+.item_col {
+    align-self: center;
+    text-align: center;
+}
+#btn1{padding: 10px;
+    background-color: blueviolet;
+    color: aliceblue;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;}
+#btn2{padding: 10px;
+    background-color: blueviolet;
+    color: aliceblue;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;}
+#btn {
+    padding: 10px;
+    background-color: blueviolet;
+    color: aliceblue;
+    border-radius: 5px;
+    transition: 0.5s;
+    cursor: pointer;
+}
+#btn1:hover {
+    background-color:rgb(98, 32, 160);
+    transition: 0.5s;
+}
+#btn:hover {
+    background-color:rgb(98, 32, 160);
+    transition: 0.5s;
+}
+#btn2:hover {
+    background-color:rgb(98, 32, 160);
+    transition: 0.5s;
+}
+.slider .item img {
+    object-fit: cover;
+    width: 25%;
+    height: 200px;
+}
+
+.previous, .next {
+    align-self: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.arrow_mobile {
+    display: none;
+}
+
+.previous:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 5px;
+}
+
+.slider .item {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    /* Устанавливаем и изменяем степень прозрачности: */
+    from {
+        opacity: 0.4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .item {
+        flex-direction: column;
+    }
+
+    .slider {
+        margin: 0;
+        padding: auto;
+        
+    }
+
+    .slider .item img {
+        width: 100%;
+        height: 80%;
+        padding: 10px;
+    }
+
+    .previous, .next {
+        display: none;
+    }
+
+    .arrow_mobile {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .previous_mobile, .next_mobile {
+        align-self: center;
+        cursor: pointer;
+        transition: 0.5s;
+        color: white;
+    }
+}
+        #page {
+            display: flex;
+            min-height: 100%;
+            flex-direction: column;
+            flex: 1 1 auto;
+        }
+        
+
+        #social-icons {
+            background-color: black;
+            color: #ffffff;
+            justify-content: center;
+            display: flex;
+        }
+
+        html{height: 100%;
+        }
+        body {
+            background-image: url(Кино.jpg);
+            margin: 0px;
+            background-size: 100%;
+            height: 100%;
+        }
+        #navbar {
+            height: 30px;
+            background-color: #181818;
+            padding-left: 25px;
+            min-width: 470px;
+            opacity: .9;
+            padding-left: 50px;
+            padding-top: 0px;
+            margin-top: 0px;
+            display: flex;
+            justify-content: center;
+        }
+        #navbar ul {
+            display: none;
+            background-color: rgb(0, 0, 0);
+            position: absolute;
+            padding-top: 0px;
+            list-style-type: none;
+            margin-top: 0px;
+            padding: 0px;
+        }
+
+        #navbar li:hover ul {
+            display: block;
+        }
+
+        #navbar li {
+            float: left;
+            position: relative;
+            height: 100%;
+            list-style-type: none
+        }
+
+        #navbar li a {
+            display: block;
+            padding: 6px;
+            width: 300px;
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            font-family: Verdana, sans-serif;
+            justify-content: center;
+        }
+
+        #navbar ul li {
+            float: none;
+        }
+
+        #navbar li:hover {
+            background-color: rgb(72, 69, 69);
+        }
+
+        #navbar ul li:hover {
+            background-color: rgb(72, 69, 69);
+        }
+
+        #content {
+            display: flex;
+            justify-content: center;
+            background-color: rgb(0, 0, 0);
+            opacity: .5;
+            color: #ffffff;
+            position: absolute;
+            margin-top: 50px;
+            margin-left: 300px;
+        }
+
+        #a {
+            display: flex;
+            justify-content: end;
+        }
+
+        .contact {
+            margin-top: 35px;
+        }
+
+        .inc {
+            
+            display: flex;
+            justify-content: center;
+            margin-top: 75px;
+            position:absolute
+        }
+
+        #icon:hover {
+            background-color: black;
+            opacity: .1;
+        }
+
+        .hood {
+            display: flex;
+            justify-content: center;
+            color: #ffffff;
+            margin-top: 200px;
+        }
+
+        #НачОбложка {
+            margin: 20px;
+            
+        }
+
+        #НачОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        #МалхолландОбложка{
+            margin: 20px;
+            
+        }
+
+        #МалхолландОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        #РыбаОбложка{
+            
+           margin: 20px;
+        }
+
+        #РыбаОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        #КристоферОбложка{
+            margin-top: 50px;
+            margin-left: 80px;
+        }
+
+        #КристоферОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        #ЛинчОбложка{
+            margin-top: 50px;
+            margin-left: 120px;
+           
+        }
+
+        #ЛинчОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        #БертонОбложка{
+           margin-top: 50px;
+           margin-left: 40px;
+
+        }
+
+        #БертонОбложка:hover {
+            transform: scale(1.1);
+            transition: 1s;
+        }
+        .contss{
+            flex-grow: 1;
+        }
+        .images1{
+            display: flex;
+            justify-content: center;
+        }
+        .images2{
+            display: flex;
+            justify-content: center;
+        }
+    
+        h1 {
+            background-color: black;
+            height: 100px;
+            padding-bottom: 20px;
+            margin: 0px;
+            font-size: 7em;
+            color: white;
+            display: flex;
+            justify-content: center;
+            font-weight: 100;
+            font-family: 'Verdana', Sans-serif;
+            font-weight: normal;
+        }
+        body {
+            background-image: url(theatre.jpg);
+            margin: 0px;
+            background-size: 100%;
+            height: 100%;
+        }
+        #wrapper{
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0 15px;
+}
+#modalBlock{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99998;
+    background-color: rgba(0, 0, 0, .3);
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+}
+.modalBox{
+    background-image: url("eyes.jpg");
+    z-index: 1;
+    padding: 45px;
+    width: 700px;
+    height: 500px;
+    margin: 30px 15px;
+    box-shadow: 0px,0px,17px,-7px,rgba(34, 60, 80, 0.2);
+}
+
+#modalBlock.open{
+    visibility: visible;
+    opacity: 1;
+    transition:all;
+}
+span[data-title]:hover:before {
+          content: attr(data-title);
+          position: absolute;
+          width: 100px;
+          color: #fff;
+          background:darkred;
+          padding: 5px;
+          border-radius: 4px;
+          bottom: 25px;
+          left: 15px;
+          margin-bottom: -70px;
+        }
+    </style>
+</head>
+    <div id="page">
+        <div class="contss">
+    <div id="upImage">
+        <h1>Gidonline</h1>
+    </div>
+</head>
+<body>
+    <ul id="navbar">
+        <li><button class="open-modal-btn" id="openModal" style="background-color: black; color: #ffffff;"><span data-title="Перейдите на главную"> Зарегистрироваться</span></button></li>
+        <li><a href="СР.html">Главная</a></li>
+        <li><a href="#">Режиссеры</a>
+            <ul>
+                <li><a href="КристоферНолан.html">Кристофер Нолан</a></li>
+                <li><a href="ДэвидЛинч.html">Дэвид Линч</a></li>
+                <li><a href="ТимБертон.html">Тим Бёртон</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Фильмы</a>
+            <ul>
+                <li><a href="Начало.html">Начало</a></li>
+                <li><a href="МалхолландДрайв.html">Малхолланд драйв</a></li>
+                <li><a href="КрупнаяРыба.html">Крупная рыба</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Опции</a>
+            <ul>
+                <li><a href="MOVIE.html">Галерея</a></li>
+                </ul>
+        </li>
+        <li><a href="Конец.html">О нас</a></li>
+    </ul>
+</div>
+
+<div class="slider">
+    <div class="item">
+        <a class="previous" onclick="previousSlide()">&#10094;</a>
+        <div class="item_col">
+           <h2>Галерея</h2>
+           <h3>Выберите фото</h3> 
+           <button id="btn" onclick="click1()">Выбрать</button>
+        </div>           
+        <img src="eyes.jpg" alt="">
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+    </div>
+
+    <div class="item">
+        <a class="previous" onclick="previousSlide()">&#10094;</a>
+        <div class="item_col">
+           <h2>Галерея</h2>
+           <h3>Выберите фото</h3> 
+           <button id="btn1" onclick="click2()">Выбрать</button>
+        </div>           
+        <img src="крупная.jpg" alt="">
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+    </div>
+
+    <div class="item">
+        <a class="previous" onclick="previousSlide()">&#10094;</a>
+        <div class="item_col">
+            <h2>Галерея</h2>
+            <h3>Выберите фото</h3>
+           <button id="btn2" onclick="click3()">Выбрать</button>
+        </div>           
+        <img src="переворот.jpg" alt="">
+        <a class="next" onclick="nextSlide()">&#10095;</a>
+    </div>
+    
+    <div class="arrow_mobile">
+        <a class="previous_mobile" onclick="previousSlide()">&#10094;</a>
+        <a class="next_mobile" onclick="nextSlide()">&#10095;</a>
+    </div>
+</div>
+<div id="wrapper">
+    <div id="modalBlock" class="my-modal">
+    <div class="modalBox">
+        <button id="close">Закрыть</button>
+    </div>
+</div>
+</div>
+    <footer>
+        <div id="social-icons">
+            <div class="inc">Samara 2023 Arman Zhurtanov inc. &copy;</div>
+            <p class="contact">Наши контакты: 8-902-15-99-360</p>
+            <a id="icon" href="https://vk.com/id6168043"><img src='vk.png' width="100px" height="100px"></img></a>
+            <a id="icon" href="http://www.twitter.com"><img src='tw.png' width="90px" height="90px"></img></a>
+            <a id="icon" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"><img src='yt.png' width="100px"
+                    height="100px"></img></a>
+        </div>
+    </footer>
+</body>
+</html>
