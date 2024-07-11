@@ -16,7 +16,7 @@ from aiogram import types
 from aiogram.types import ReplyKeyboardRemove,ReplyKeyboardMarkup, KeyboardButton,InlineKeyboardMarkup, InlineKeyboardButton
 import requests
 
-TOKEN = "7295540178:AAF9W6cL5XKLf1M6dKXCGk1nt5jaAUkmGl0"
+TOKEN = "ВАШ ТОКЕН"
 dp = Dispatcher()
 
 @dp.message(CommandStart())
