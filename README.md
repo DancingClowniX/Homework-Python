@@ -1,1 +1,1 @@
-# ArmanDancingClown
+Здесь представлен материалы по SQLite
