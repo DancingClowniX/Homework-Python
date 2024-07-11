@@ -19,7 +19,7 @@ from aiogram.types import ReplyKeyboardRemove,ReplyKeyboardMarkup, KeyboardButto
 
 TOKEN = "ВАШ ТОКЕН"
 dp = Dispatcher()
-manager = '@cockieMonsta'
+manager = '@coockieMonsta'
 time = datetime.datetime.now()
 
 
